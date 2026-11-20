@@ -105,12 +105,13 @@
   nav a:hover{color:var(--ink)}
   @media (max-width:720px){nav .hide-sm{display:none} nav a{margin-left:14px} .brand{font-size:1rem}}
   @media (max-width:420px){nav a[href="#products"]{display:none}}
+  @media (max-width:360px){nav a[href="#contact"]{display:none}}
 
   /* hero */
   .hero{padding:72px 0 56px;border-bottom:1px solid var(--line);
         background:radial-gradient(1200px 400px at 85% -10%, #f6e2cf 0, transparent 60%)}
   .eyebrow{display:inline-block;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--saffron-dark);background:#f6e2cf;padding:6px 12px;border-radius:999px;margin-bottom:18px}
-  .hero h1{font-size:clamp(2.1rem,5vw,3.5rem);font-weight:800;max-width:16ch}
+  .hero h1{font-size:clamp(1.85rem,5vw,3.5rem);font-weight:800;max-width:16ch}
   .hero p.lead{font-size:1.15rem;color:var(--muted);max-width:56ch;margin:0 0 28px}
   .cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
   .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:12px;font-weight:600;text-decoration:none;border:0;cursor:pointer;font-size:1rem;font-family:inherit}
@@ -119,7 +120,7 @@
   .btn-call{background:var(--card);color:var(--ink);border:1px solid var(--line)}
   .btn-call:hover{border-color:var(--saffron)}
   .num{font-size:.95rem;color:var(--muted);margin-top:14px}
-  .num strong{color:var(--ink)}
+  .num strong{color:var(--ink);white-space:nowrap}
 
   .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px;max-width:760px}
   .fact{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px}
@@ -232,7 +233,7 @@
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="Shree Agarwal Stores home">
+    <a class="brand" href="#" aria-label="Shree Agarwal Stores home">
       <span class="logo" aria-hidden="true">श्री</span>
       Shree Agarwal Stores
     </a>
