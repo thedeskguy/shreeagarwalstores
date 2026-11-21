@@ -46,7 +46,7 @@
     "@type": "OpeningHoursSpecification",
     "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
     "opens": "09:00",
-    "closes": "20:00"
+    "closes": "20:30"
   }],
   "priceRange": "₹",
   "paymentAccepted": "Cash, UPI, Bank Transfer",
@@ -417,7 +417,7 @@
             <dt>Instagram</dt>
             <dd><a href="https://www.instagram.com/shreeagarwalstores/" target="_blank" rel="noopener">@shreeagarwalstores</a></dd>
             <dt>Hours</dt>
-            <dd>Monday – Saturday, 9:00 AM – 8:00 PM <span class="status" data-status hidden></span></dd>
+            <dd>Monday – Saturday, 9:00 AM – 8:30 PM <span class="status" data-status hidden></span></dd>
           </dl>
           <iframe class="map" title="Map to Shree Agarwal Stores" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Bhagwati+Bhawan,+Near+BSNL+Telephone+Exchange,+Dibrugarh,+Assam+786001&amp;output=embed"></iframe>
           <p style="margin-top:16px"><a class="btn btn-call" href="https://www.google.com/maps/search/?api=1&amp;query=Shree+Agarwal+Stores+Bhagwati+Bhawan+Dibrugarh" target="_blank" rel="noopener">Get directions</a></p>
@@ -469,12 +469,13 @@
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
 
-  // Open/closed badge in shop time (IST): Mon–Sat 9:00–20:00
+  // Open/closed badge in shop time (IST): Mon–Sat 9:00–20:30
   (function(){
     var p = {};
-    new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Kolkata',weekday:'short',hour:'numeric',hourCycle:'h23'})
+    new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Kolkata',weekday:'short',hour:'numeric',minute:'numeric',hourCycle:'h23'})
       .formatToParts(new Date()).forEach(function(x){ p[x.type] = x.value; });
-    var open = p.weekday !== 'Sun' && +p.hour >= 9 && +p.hour < 20;
+    var mins = +p.hour * 60 + +p.minute;
+    var open = p.weekday !== 'Sun' && mins >= 540 && mins < 1230; // 9:00–20:30
     document.querySelectorAll('[data-status]').forEach(function(el){
       el.textContent = open ? 'Open now' : 'Closed now';
       el.className = 'status ' + (open ? 'open' : 'closed');
